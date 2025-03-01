@@ -4,8 +4,7 @@ blueprint:
   description: |
     ## Doorbell Notification with Camera Snapshot
 
-    A customisable Notification template to use with a doorbell button. This blueprint will create a camera snapshot
-    and send a notification to a mobile device when the doorbell button is pressed.
+    A customisable Notification template to use with a doorbell button. This blueprint will create a camera snapshot and send a notification to a mobile device when the doorbell button is pressed.
 
     ### Required Configuration Options:
       - Frigate Cameras (probably could be any camera entity)
@@ -16,12 +15,10 @@ blueprint:
       - Configure delays, throttle time, and notification messages.
 
     ## Support
-    Go to hhttps://github.com/helgew/ha-blueprints to report bugs, request new features, or get support with your
-    configuration.
+    Go to https://github.com/helgew/ha-blueprints to report bugs, request new features, or get support with your configuration.
     
     ## Acknowledgements
-    This blueprint is based on the [Doorbell Notification Discussion][1], specifically the [blueprint first published by
-    aceindy][2].
+    This blueprint is based on the [Doorbell Notification Discussion][1], specifically the [blueprint first published by aceindy][2].
     
     [1]: https://community.home-assistant.io/t/send-camera-snapshot-when-doorbell-was-activated/123456
     [2]: https://gist.github.com/aceindy/d43b3a3237194e9846b18e0132de303b
