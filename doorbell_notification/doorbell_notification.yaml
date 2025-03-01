@@ -4,7 +4,7 @@ blueprint:
   description: |
     ## Doorbell Notification with Camera Snapshot
 
-    A customisable Notification template to use with a doorbell button. This blueprint will create a camera snapshot and send a notification to a mobile device when the doorbell button is pressed.
+    A customizable Notification template to use with a doorbell button. This blueprint will create a camera snapshot and send a notification to a mobile device when the doorbell button is pressed.
 
     ### Required Configuration Options:
       - Frigate Cameras (probably could be any camera entity)
@@ -18,7 +18,7 @@ blueprint:
     Go to https://github.com/helgew/ha-blueprints to report bugs, request new features, or get support with your configuration.
     
     ## Acknowledgements
-    This blueprint is based on the [Doorbell Notification Discussion][1], specifically the [blueprint first published by aceindy][2].
+    This blueprint is based on this [discussion][1], specifically the [blueprint first published by aceindy][2]. Thank you for sharing your work!
     
     [1]: https://community.home-assistant.io/t/send-camera-snapshot-when-doorbell-was-activated/123456
     [2]: https://gist.github.com/aceindy/d43b3a3237194e9846b18e0132de303b
@@ -27,10 +27,8 @@ blueprint:
 
   input:
     binary_sensor:
-      name: Push button
-      description: Entity representing a physical push button (which restores its
-        position when released). It must emit a square signal on press. This automation
-        is triggered by its falling edge.
+      name: Doorbell
+      description: The doorbell entity (or any binary sensor, really) to trigger the notification
       selector:
         entity:
           domain: binary_sensor
@@ -43,17 +41,16 @@ blueprint:
           domain: camera
     notify_device:
       name: Device to notify
-      description: Device needs to run the official Home Assistant app to receive
-        notifications
+      description: The device running the Home Assistant Companion App
       selector:
         device:
           integration: mobile_app
     is_ios:
-      name: Is it an iOS device?
-      description: Toggle if your selected device runs iOS, default is Android
+      name: Is this an iOS device?
+      description: Toggle if your selected device runs Android, default is iOS
       selector:
         boolean: {}
-      default: false
+      default: true
     notification_title:
       name: Notification title (Optional)
       description: 'Default: "The doorbell was rung!"'
@@ -74,8 +71,8 @@ blueprint:
           mode: slider
           step: 1.0
     mode:
-      name: Mode
-      description: The mode of the automation
+      name: Mode (Optional)
+      description: The mode of the automation (default signal)
       selector:
         select:
           options:
